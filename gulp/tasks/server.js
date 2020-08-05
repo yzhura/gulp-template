@@ -1,6 +1,9 @@
 const gulp = require('gulp')
 
+const html = require('./html');
 const styles = require('./sass2css')
+const jquery = require('./jquery')
+const script = require('./script')
 const imageMinify = require('./imgmin')
 let devip = require('dev-ip');
 const server = require('browser-sync').create()
@@ -11,22 +14,24 @@ function readyReload(cb) {
   cb()
 }
 
-
-
 module.exports = function localServer(cb) {
     server.init({
-        server: './',
+        watch: true,
+        server: true,
         notify: false,
         open: true,
         cors: true,
         online: true,
-        host: devip[0]
+        host: devip[0],
+        directory: true
     })
 
     gulp.watch('src/sourceimages/*.{gif,png,jpg,svg,webp}', gulp.series(imageMinify, readyReload))
     // gulp.watch('src/img/sprite/*.svg', gulp.series(svgSprite, readyReload))
-    gulp.watch('src/styles/**/*.scss', gulp.series(styles, cb => gulp.src('css').pipe(server.stream()).on('end', cb)))
-    // gulp.watch('src/js/**/*.js', gulp.series(script, readyReload))
+    gulp.watch('src/**/*.html', gulp.series(html, cb => gulp.src('dist/').pipe(server.stream()).on('end', cb)))
+    gulp.watch('src/styles/**/*.scss', gulp.series(styles, cb => gulp.src('dist/css').pipe(server.stream()).on('end', cb)))
+    gulp.watch('src/js/*.js', gulp.series(script, readyReload))
+    gulp.watch('src/jquery/*.js', gulp.series(jquery, readyReload))
     // gulp.watch('src/pages/**/*.pug', gulp.series(pug2html, readyReload))
     // gulp.watch('package.json', gulp.series(copyDependencies, readyReload))
     gulp.watch("*.html").on("change", reload)

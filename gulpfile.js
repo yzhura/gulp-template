@@ -4,6 +4,9 @@
 const gulp = require('gulp');
 
 const server = require('./gulp/tasks/server');
+const html = require('./gulp/tasks/html');
+const jquery = require('./gulp/tasks/jquery');
+const script = require('./gulp/tasks/script');
 const styles = require('./gulp/tasks/sass2css');
 const imgMin = require('./gulp/tasks/imgmin');
 const clean = require('./gulp/tasks/clean');
@@ -15,7 +18,7 @@ function setMode(isProduction = false) {
     }
 }
 
-const dev = gulp.parallel(styles, imgMin);
+const dev = gulp.parallel(html, styles, jquery, script, imgMin);
 
 const build = gulp.series(clean, dev)
 
