@@ -5,6 +5,7 @@ const styles = require('./sass2css')
 const jquery = require('./jquery')
 const script = require('./script')
 const imageMinify = require('./imgmin')
+const fonts = require('./fonts')
 let devip = require('dev-ip');
 const server = require('browser-sync').create()
 let reload = server.reload;
@@ -32,6 +33,7 @@ module.exports = function localServer(cb) {
     gulp.watch('src/styles/**/*.scss', gulp.series(styles, cb => gulp.src('dist/css').pipe(server.stream()).on('end', cb)))
     gulp.watch('src/js/*.js', gulp.series(script, readyReload))
     gulp.watch('src/jquery/*.js', gulp.series(jquery, readyReload))
+    gulp.watch('src/fonts/*', gulp.series(fonts, readyReload))
     // gulp.watch('src/pages/**/*.pug', gulp.series(pug2html, readyReload))
     // gulp.watch('package.json', gulp.series(copyDependencies, readyReload))
     gulp.watch("*.html").on("change", reload)
