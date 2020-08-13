@@ -2,7 +2,7 @@
 const del = require('del')
 
 module.exports = function clean(cb) {
-  return del('images').then(() => {
+  return del('dist').then(() => {
     cb()
   })
 }

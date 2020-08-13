@@ -23,5 +23,5 @@ const dev = gulp.parallel(html, styles, jquery, script, imgMin, fonts);
 
 const build = gulp.series(clean, dev)
 
-module.exports.start = gulp.series(setMode(), build, server);
+module.exports.start = gulp.series(setMode(), build, server)
 module.exports.build = gulp.series(setMode(true), build)

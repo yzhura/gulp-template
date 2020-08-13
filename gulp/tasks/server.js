@@ -27,7 +27,7 @@ module.exports = function localServer(cb) {
         directory: true
     })
 
-    gulp.watch('src/sourceimages/*.{gif,png,jpg,svg,webp}', gulp.series(imageMinify, readyReload))
+    gulp.watch('src/images/**/*.{gif,png,jpg,svg,webp}', gulp.series(imageMinify, readyReload))
     // gulp.watch('src/img/sprite/*.svg', gulp.series(svgSprite, readyReload))
     gulp.watch('src/**/*.html', gulp.series(html, cb => gulp.src('dist/').pipe(server.stream()).on('end', cb)))
     gulp.watch('src/styles/**/*.scss', gulp.series(styles, cb => gulp.src('dist/css').pipe(server.stream()).on('end', cb)))
