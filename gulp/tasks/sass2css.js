@@ -26,7 +26,6 @@ module.exports = function styles() {
     .pipe(autoprefixer({
       cascade: false
     }))
-    .pipe(shorthand())
     // .pipe(cleanCSS({
     //   debug: true,
     //   compatibility: '*'

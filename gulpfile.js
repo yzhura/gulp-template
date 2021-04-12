@@ -10,6 +10,7 @@ const script = require('./gulp/tasks/script');
 const styles = require('./gulp/tasks/sass2css');
 const imgMin = require('./gulp/tasks/imgmin');
 const fonts = require('./gulp/tasks/fonts');
+const files = require('./gulp/tasks/files');
 const clean = require('./gulp/tasks/clean');
 
 function setMode(isProduction = false) {
@@ -19,7 +20,7 @@ function setMode(isProduction = false) {
     }
 }
 
-const dev = gulp.parallel(html, styles, jquery, script, imgMin, fonts);
+const dev = gulp.parallel(html, styles, jquery, script, imgMin, fonts, files);
 
 const build = gulp.series(clean, dev)
 
