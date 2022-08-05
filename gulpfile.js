@@ -4,8 +4,8 @@
 const gulp = require('gulp');
 const server = require('./gulp/tasks/server');
 const html = require('./gulp/tasks/html');
-const script = require('./gulp/tasks/script');
-const styles = require('./gulp/tasks/sass2css');
+const {script} = require('./gulp/tasks/script');
+const {styles} = require('./gulp/tasks/sass2css');
 const imgMin = require('./gulp/tasks/imgmin');
 const fonts = require('./gulp/tasks/fonts');
 const files = require('./gulp/tasks/files');
@@ -18,9 +18,9 @@ function setMode(isProduction = false) {
     }
 }
 
-const dev = gulp.parallel(html, styles, script, imgMin, fonts, files);
+const dev = gulp.parallel(styles, script, imgMin, fonts, files);
 
-const build = gulp.series(clean, dev)
+const build = gulp.series(clean, dev, html)
 
 module.exports.start = gulp.series(setMode(), build, server)
 module.exports.build = gulp.series(setMode(true), build)
