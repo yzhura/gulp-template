@@ -2,10 +2,8 @@
 //npm run build
 
 const gulp = require('gulp');
-
 const server = require('./gulp/tasks/server');
 const html = require('./gulp/tasks/html');
-const jquery = require('./gulp/tasks/jquery');
 const script = require('./gulp/tasks/script');
 const styles = require('./gulp/tasks/sass2css');
 const imgMin = require('./gulp/tasks/imgmin');
@@ -20,7 +18,7 @@ function setMode(isProduction = false) {
     }
 }
 
-const dev = gulp.parallel(html, styles, jquery, script, imgMin, fonts, files);
+const dev = gulp.parallel(html, styles, script, imgMin, fonts, files);
 
 const build = gulp.series(clean, dev)
 
