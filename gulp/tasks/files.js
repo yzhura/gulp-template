@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 
-module.exports = function jquery() {
+module.exports = function files() {
   return gulp.src('src/files/*')
     .pipe(gulp.dest('dist/files'));
 };

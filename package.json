@@ -5,6 +5,9 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "init-react": "npm i react react-dom",
+    "start-react": "gulp start-react",
+    "build-react": "gulp build-react",
     "start": "gulp start",
     "build": "gulp build"
   },
@@ -13,7 +16,10 @@
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.18.6",
+    "babelify": "^10.0.0",
     "browser-sync": "^2.26.7",
+    "browserify": "^17.0.0",
     "del": "^5.1.0",
     "dev-ip": "^1.0.1",
     "gulp": "^4.0.2",
@@ -24,7 +30,9 @@
     "gulp-eslint": "^6.0.0",
     "gulp-file-include": "^2.2.2",
     "gulp-hash-filename": "^4.0.0",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^7.1.0",
+    "gulp-inject-string": "^1.1.2",
     "gulp-npm-dist": "^1.0.3",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
@@ -40,7 +48,9 @@
     "stylelint-config-htmlacademy": "^0.1.4",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-config-standard-scss": "^1.1.0",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-scss": "^3.18.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {},
   "browserslist": [
