@@ -15,7 +15,7 @@ module.exports = {
   script: function () {
     const isProd = process.env.NODE_ENV === "production";
     if(process.env.WITH_REACT === 'true') {
-      jsPaths.push('src/js/app.jsx')
+      jsPaths.push('src/js/index.jsx')
     }
 
     if (isProd) {

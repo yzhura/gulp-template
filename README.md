@@ -49,7 +49,7 @@ export const TestComponent = () => {
 export default TestComponent;
 ```
 
-Create `app.jsx` into `src/js`:
+Create `index.jsx` into `src/js`:
 ```sh
     import React from 'react';
     import { createRoot } from 'react-dom/client';
