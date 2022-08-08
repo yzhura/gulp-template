@@ -52,7 +52,10 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "browserslist": [
     "last 1 version",
     "> 1%",

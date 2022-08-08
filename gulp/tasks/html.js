@@ -21,15 +21,15 @@ module.exports = function html() {
 
   return gulp
     .src("src/*.html")
-    .pipe(inject.after(injectJsPath, jsScripts))
-    .pipe(inject.after(injectCssPath, cssLinks))
-    .pipe(plumber())
     .pipe(
       fileinclude({
         prefix: "@@",
         basepath: "@file",
       })
     )
+    .pipe(plumber())
     .pipe(rigger())
+    .pipe(inject.after(injectJsPath, jsScripts))
+    .pipe(inject.after(injectCssPath, cssLinks))
     .pipe(gulp.dest("dist/"));
 };
