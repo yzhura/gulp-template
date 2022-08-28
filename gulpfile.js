@@ -11,8 +11,9 @@ const fonts = require("./gulp/tasks/fonts");
 const files = require("./gulp/tasks/files");
 const clean = require("./gulp/tasks/clean");
 
-function setMode(isProduction = false) {
+function setMode(isProduction = false, withReact = false) {
   return (cb) => {
+    process.env.WITH_REACT = withReact;
     process.env.NODE_ENV = isProduction ? "production" : "development";
     cb();
   };

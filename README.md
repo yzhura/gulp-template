@@ -49,7 +49,7 @@ export const TestComponent = () => {
 export default TestComponent;
 ```
 
-Create `index.jsx` into `src/js`:
+Update `index.jsx` into `src/js`:
 ```sh
     import React from 'react';
     import { createRoot } from 'react-dom/client';
@@ -58,6 +58,12 @@ Create `index.jsx` into `src/js`:
     const root = createRoot(document.getElementById('react'));
     root.render(<TestComponent />);
 ```
+In your `.html` file insert head tag from templates folder to connect react scripts (by default it used: `//= templates/head/head.html`):
+
+```sh
+    //= templates/head/head-with-react.html
+```
+
 In your `.html` file create root tag when will be render react:
 
 ```sh
@@ -67,10 +73,10 @@ In your `.html` file create root tag when will be render react:
 Start server:
 
 ```sh
-    npm run start-react
+    npm run start
 ```
 For production environments...
 
 ```sh
-    npm run build-react
+    npm run build
 ```
