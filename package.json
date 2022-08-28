@@ -6,8 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init-react": "npm i react react-dom",
-    "start-react": "gulp start-react",
-    "build-react": "gulp build-react",
     "start": "gulp start",
     "build": "gulp build"
   },
